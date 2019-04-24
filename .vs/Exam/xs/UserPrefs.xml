@@ -1,0 +1,59 @@
+﻿<Properties StartupConfiguration="{FE76AC22-1874-47CC-93BB-76F82C1B5A62}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MeetingRoom/Startup.cs">
+    <Files>
+      <File FileName="MeetingRoom/Startup.cs" Line="51" Column="1" />
+      <File FileName="../../../../code/dotnet/core/contosouniversity/ContosoUniversity/Startup.cs" Line="74" Column="1" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ContosoUniversity" expanded="True">
+            <Node name="ContosoUniversity" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="MediatR.Extensions.Microsoft.DependencyInjection" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Data" expanded="True" />
+              <Node name="Infrastructure" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="Instructors" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="ContosoUniversity.IntegrationTests" expanded="True" />
+          </Node>
+          <Node name="Exam" expanded="True">
+            <Node name="MeetingRoom" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Infrastructure" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Pages" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="ContosoUniversity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="ContosoUniversity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MeetingRoom PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
