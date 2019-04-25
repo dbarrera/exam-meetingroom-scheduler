@@ -1,0 +1,44 @@
+﻿@page
+@model Rooms.Index
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@Model.Data.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-default" />
+            <a asp-page="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="Index" asp-route-sortOrder="@Model.Data.NameSortParm" asp-route-currentFilter="@Model.Data.CurrentFilter">Name</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0; }
+        @foreach (var item in Model.Data.Results)
+        {
+            <tr>
+                <td>
+                    <display-tag for="Data.Results[i].Name" />
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+

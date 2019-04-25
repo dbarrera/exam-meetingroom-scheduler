@@ -1,7 +1,9 @@
 using AutoMapper;
+using HtmlTags;
 using MediatR;
 using MeetingRoom.Data;
 using MeetingRoom.Infrastructure;
+using MeetingRoom.Infrastructure.Tags;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -36,14 +38,8 @@ namespace MeetingRoom
                 typeof(IPipelineBehavior<,>),
                 typeof(LoggingBehavior<,>));
 
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
+            services.AddHtmlTags(new TagConventions());
 
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc(opt =>
             {
                 opt.ModelBinderProviders.Insert(0, new EntityModelBinderProvider());
@@ -61,13 +57,9 @@ namespace MeetingRoom
             else
             {
                 app.UseExceptionHandler("/Error");
-                //app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseCookiePolicy();
-
             app.UseMvc();
         }
     }

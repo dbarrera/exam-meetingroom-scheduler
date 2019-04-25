@@ -19,8 +19,13 @@ namespace MeetingRoom.Infrastructure
 
                 if (int.TryParse(originalValue, out id))
                 {
-                    var dbContext = bindingContext.HttpContext.RequestServices.GetService<ExamContext>();
                     IEntity entity = null;
+                    var dbContext = bindingContext.HttpContext.RequestServices.GetService<ExamContext>();
+
+                    if (bindingContext.ModelType == typeof(Room))
+                    {
+                        entity = await dbContext.Set<Room>().FindAsync(id);
+                    }
 
                     bindingContext.Result = entity != null ? ModelBindingResult.Success(entity) : bindingContext.Result;
                 }
