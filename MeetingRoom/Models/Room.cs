@@ -4,13 +4,17 @@ namespace MeetingRoom.Models
 {
     public class Room : IEntity
     {
-        public Room()
-        {
-            //Attributes = new List<RoomAttribute>();
-        }
+        //public Room()
+        //{
+        //    Items = new List<RoomItem>();
+        //}
 
         public int Id { get; set; }
         public string Name { get; set; }
-        //public IList<RoomAttribute> Attributes { get; set; }
+
+        // A change of design.
+        // Lets make room not aware of how many
+        // attribute it has.
+        //public IList<RoomItem> Items { get; set; }
     }
 }

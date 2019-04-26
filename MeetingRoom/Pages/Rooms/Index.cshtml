@@ -26,6 +26,7 @@
             <th>
                 <a asp-page="Index" asp-route-sortOrder="@Model.Data.NameSortParm" asp-route-currentFilter="@Model.Data.CurrentFilter">Name</a>
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,11 @@
             <tr>
                 <td>
                     <display-tag for="Data.Results[i].Name" />
+                </td>
+                <td>
+                    <a asp-page="Edit">Edit</a> |
+                    <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="Delete">Delete</a>
                 </td>
             </tr>
             i++;

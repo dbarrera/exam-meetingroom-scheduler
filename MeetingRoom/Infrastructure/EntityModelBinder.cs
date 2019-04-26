@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using MeetingRoom.Data;
+﻿using MeetingRoom.Data;
 using MeetingRoom.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace MeetingRoom.Infrastructure
 {
@@ -25,6 +25,10 @@ namespace MeetingRoom.Infrastructure
                     if (bindingContext.ModelType == typeof(Room))
                     {
                         entity = await dbContext.Set<Room>().FindAsync(id);
+                    }
+                    else if (bindingContext.ModelType == typeof(RoomAttribute))
+                    {
+                        entity = await dbContext.Set<RoomAttribute>().FindAsync(id);
                     }
 
                     bindingContext.Result = entity != null ? ModelBindingResult.Success(entity) : bindingContext.Result;

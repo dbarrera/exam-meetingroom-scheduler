@@ -15,12 +15,17 @@ namespace MeetingRoom.Data
         }
 
         public DbSet<Room> Rooms { get; set; }
-        //public DbSet<RoomAttribute> RoomAttributes { get; set; }
+        public DbSet<RoomAttribute> RoomAttributes { get; set; }
+        public DbSet<RoomItem> RoomItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Room>().ToTable("Room");
-            //modelBuilder.Entity<RoomAttribute>().ToTable("RoomAttribute");
+            modelBuilder.Entity<RoomAttribute>().ToTable("RoomAttribute");
+            modelBuilder.Entity<RoomItem>().ToTable("RoomItem");
+
+            modelBuilder.Entity<RoomItem>()
+                .HasKey(r => new { r.RoomId, r.RoomAttributeId });
         }
 
         public async Task BeginTransactionAsync()

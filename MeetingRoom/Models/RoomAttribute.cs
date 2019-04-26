@@ -2,8 +2,8 @@
 {
     public class RoomAttribute : IEntity
     {
-        public int Id => Id;
-        public string Display { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Value { get; set; }
     }
 }

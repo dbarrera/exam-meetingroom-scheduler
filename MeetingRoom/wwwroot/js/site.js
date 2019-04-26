@@ -59,11 +59,11 @@ var redirect = function (data) {
     }
 };
 
-$('form[method=post]').not('.no-ajax').on('submit', function () {
+$('form[method=post]').not('.no-ajax').on('submit', function (e) {
     var submitBtn = $(this).find('[type="submit"]');
 
     submitBtn.prop('disabled', true);
-    $(window).unbind();
+    $(window).off();
 
     var $this = $(this),
         formData = $this.serialize();
@@ -81,8 +81,9 @@ $('form[method=post]').not('.no-ajax').on('submit', function () {
         },
         complete: function () {
             submitBtn.prop('disabled', false);
-        }
-    }).error(highlightErrors);
+        },
+        error: highlightErrors
+    });
 
     return false;
 });

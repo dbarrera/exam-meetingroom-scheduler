@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.aspnetcore.mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Entityframeworkcore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Entityframeworkcore.sqlserver" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Environmentvariables" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Fileextensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.dependencyinjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.net.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="nito.asyncex" Version="5.0.0" />
+    <PackageReference Include="respawn" Version="3.2.0" />
+    <PackageReference Include="shouldly" Version="3.0.2" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MeetingRoom\MeetingRoom.csproj" />
+  </ItemGroup>
+
+</Project>
