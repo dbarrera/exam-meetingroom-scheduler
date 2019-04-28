@@ -4,6 +4,7 @@ using MeetingRoom.Data;
 using MeetingRoom.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,14 +28,48 @@ namespace MeetingRoom.Pages.Rooms
             return this.RedirectToPageJson(nameof(Index));
         }
 
+        public class Query : IRequest<Command>
+        {
+            public int Id { get; set; }
+        }
+
         public class Command : IRequest<int>
         {
+            public Command()
+            {
+                Attributes = new List<Attribute>();
+            }
+
             public string Name { get; set; }
+            public List<Attribute> Attributes { get; set; }
+
+            public class Attribute
+            {
+                public int Id { get; set; }
+                public string DisplayValue { get; set; }
+            }
         }
 
         public class MappingProfile : Profile
         {
             public MappingProfile() => CreateMap<Command, Room>(MemberList.Source);
+        }
+
+        public class QueryHandler : IRequestHandler<Query, Command>
+        {
+            private readonly ExamContext _db;
+            private readonly IConfigurationProvider _configuration;
+
+            public QueryHandler(ExamContext db, IConfigurationProvider configuration)
+            {
+                _db = db;
+                _configuration = configuration;
+            }
+
+            public async Task<Command> Handle(Query request, CancellationToken cancellationToken)
+            {
+                //var model = await _db.;
+            }
         }
 
         public class Handler : IRequestHandler<Command, int>

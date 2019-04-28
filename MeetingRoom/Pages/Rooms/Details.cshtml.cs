@@ -76,6 +76,7 @@ namespace MeetingRoom.Pages.Rooms
                 room.Items = await _db
                     .RoomItems
                     .Where(r => r.RoomId == room.Id)
+                    .Select(select => select.RoomAttribute)
                     .ProjectToListAsync<Model.Item>(_configuration);
 
                 return room;

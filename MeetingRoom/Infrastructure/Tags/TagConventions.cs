@@ -31,7 +31,7 @@ namespace MeetingRoom.Infrastructure.Tags
                 .ModifyWith(er => er.CurrentTag.Text(er.CurrentTag.Text().Replace("Data ", "")));
 
             //Editors.BuilderPolicy<InstructorSelectElementBuilder>();
-            //Editors.BuilderPolicy<DepartmentSelectElementBuilder>();
+            Editors.BuilderPolicy<RoomAttributeSelectElementBuilder>();
             DisplayLabels.Always.BuildBy<DefaultDisplayLabelBuilder>();
             DisplayLabels.ModifyForAttribute<DisplayAttribute>((t, a) => t.Text(a.Name));
             Displays.IfPropertyIs<DateTime>().ModifyWith(m => m.CurrentTag.Text(m.Value<DateTime>().ToShortDateString()));
