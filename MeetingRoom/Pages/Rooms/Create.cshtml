@@ -14,6 +14,33 @@
         <form method="post">
             @Html.FormBlock(m => m.Data.Name)
             <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+                            @{ 
+                                int cnt = 0;
+
+                                foreach (var attr in Model.Data.AvailableAttributes)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                        @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <label style="font-weight: normal">
+                                            <input type="checkbox"
+                                                   name="data.selectedAttributes"
+                                                   value="@attr.Id" />
+                                            @attr.DisplayValue
+                                        </label>
+                                    @:</td>
+                                }
+                                @:</tr>
+                            }
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>

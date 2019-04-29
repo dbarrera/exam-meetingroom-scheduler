@@ -19,7 +19,7 @@ namespace MeetingRoom.Pages.Rooms
         [BindProperty]
         public Command Data { get; set; }
 
-        public void OnGet() => Data = new Command();
+        public async Task OnGetAsync() => Data = await _mediator.Send(new Query());
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -30,18 +30,19 @@ namespace MeetingRoom.Pages.Rooms
 
         public class Query : IRequest<Command>
         {
-            public int Id { get; set; }
         }
 
         public class Command : IRequest<int>
         {
             public Command()
             {
-                Attributes = new List<Attribute>();
+                SelectedAttributes = new int[0];
+                AvailableAttributes = new List<Attribute>();
             }
 
             public string Name { get; set; }
-            public List<Attribute> Attributes { get; set; }
+            public int[] SelectedAttributes { get; set; }
+            public List<Attribute> AvailableAttributes { get; set; }
 
             public class Attribute
             {
@@ -52,7 +53,11 @@ namespace MeetingRoom.Pages.Rooms
 
         public class MappingProfile : Profile
         {
-            public MappingProfile() => CreateMap<Command, Room>(MemberList.Source);
+            public MappingProfile()
+            {
+                CreateMap<Command, Room>(MemberList.Source);
+                CreateMap<Command.Attribute, RoomAttribute>();
+            }
         }
 
         public class QueryHandler : IRequestHandler<Query, Command>
@@ -67,17 +72,15 @@ namespace MeetingRoom.Pages.Rooms
             }
 
             public async Task<Command> Handle(Query request, CancellationToken cancellationToken)
-            {
-                //var model = await _db.;
-            }
+                => new Command { AvailableAttributes = await _db.RoomAttributes.ProjectToListAsync<Command.Attribute>(_configuration) };
         }
 
-        public class Handler : IRequestHandler<Command, int>
+        public class CommandHandler : IRequestHandler<Command, int>
         {
             private readonly ExamContext _db;
             private readonly IMapper _mapper;
 
-            public Handler(ExamContext db, IMapper mapper)
+            public CommandHandler(ExamContext db, IMapper mapper)
             {
                 _db = db;
                 _mapper = mapper;
@@ -88,6 +91,17 @@ namespace MeetingRoom.Pages.Rooms
                 var room = _mapper.Map<Command, Room>(request);
 
                 _db.Rooms.Add(room);
+
+                for (int i = 0; i < request.SelectedAttributes.Length; i++)
+                {
+                    var roomItem = new RoomItem
+                    {
+                        RoomId = room.Id,
+                        RoomAttributeId = request.SelectedAttributes[i]
+                    };
+
+                    _db.RoomItems.Add(roomItem);
+                }
 
                 await _db.SaveChangesAsync(cancellationToken);
 

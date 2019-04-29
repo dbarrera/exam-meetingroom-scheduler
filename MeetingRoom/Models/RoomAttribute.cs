@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string Value { get; set; }
 
-        public string DisplayValue => $"{Name} ${Value}";
+        public string DisplayValue => $"{Name} {Value}";
     }
 }

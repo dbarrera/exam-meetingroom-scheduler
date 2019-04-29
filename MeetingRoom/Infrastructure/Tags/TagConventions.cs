@@ -30,7 +30,6 @@ namespace MeetingRoom.Infrastructure.Tags
                 .Always
                 .ModifyWith(er => er.CurrentTag.Text(er.CurrentTag.Text().Replace("Data ", "")));
 
-            //Editors.BuilderPolicy<InstructorSelectElementBuilder>();
             Editors.BuilderPolicy<RoomAttributeSelectElementBuilder>();
             DisplayLabels.Always.BuildBy<DefaultDisplayLabelBuilder>();
             DisplayLabels.ModifyForAttribute<DisplayAttribute>((t, a) => t.Text(a.Name));
