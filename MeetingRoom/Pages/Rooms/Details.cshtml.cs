@@ -37,7 +37,7 @@ namespace MeetingRoom.Pages.Rooms
 
             public int Id { get; set; }
             public string Name { get; set; }
-            public IList<Item> Items { get; set; }
+            public List<Item> Items { get; set; }
 
             public class Item
             {
