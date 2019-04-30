@@ -53,6 +53,7 @@ D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Page
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Rooms\Create.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Rooms\Delete.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Rooms\Details.g.cshtml.cs
+D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Rooms\Edit.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Rooms\Index.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs

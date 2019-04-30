@@ -1,0 +1,52 @@
+﻿@page "{handler?}"
+@model Rooms.Edit
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Room</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            @Html.HiddenFor(m => m.Data.Id)
+            @Html.FormBlock(m => m.Data.Name)
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+                            @{ 
+                                int cnt = 0;
+
+                                foreach (var item in Model.Data.AssignedItems)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                        @:</tr><tr>
+                                    }
+                        @:<td>
+                        <label style="font-weight: normal">
+                            <input type="checkbox"
+                                   name="data.selectedAttributes"
+                                   value="@item.AttributeId"
+                                   @(Html.Raw(item.Assigned ? "checked=\"checked\"" : "")) />
+                            @item.DisplayValue
+                        </label>
+                        @:</td>
+                                }
+                            }
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>

@@ -41,6 +41,7 @@ namespace MeetingRoom.Pages.Rooms
             }
 
             public string Name { get; set; }
+            [IgnoreMap]
             public int[] SelectedAttributes { get; set; }
             public List<Attribute> AvailableAttributes { get; set; }
 
