@@ -89,6 +89,25 @@ namespace MeetingRoom.Data
                 }
                 context.SaveChanges();
             }
+
+            var foodItems = new Food[0];
+
+            if (!context.FoodItems.Any())
+            {
+                foodItems = new Food[]
+                {
+                    new Food { Name = "Tea" },
+                    new Food { Name = "Coffee" },
+                    new Food { Name = "Biscuits" },
+                    new Food { Name = "Buffers"}
+                };
+
+                foreach (var f in foodItems)
+                {
+                    context.FoodItems.Add(f);
+                }
+                context.SaveChanges();
+            }
         }
     }
 }
