@@ -99,7 +99,7 @@ namespace MeetingRoom.Data
                     new Food { Name = "Tea" },
                     new Food { Name = "Coffee" },
                     new Food { Name = "Biscuits" },
-                    new Food { Name = "Buffers"}
+                    new Food { Name = "Buffets"}
                 };
 
                 foreach (var f in foodItems)
