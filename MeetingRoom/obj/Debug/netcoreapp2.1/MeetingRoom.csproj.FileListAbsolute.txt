@@ -37,7 +37,6 @@ D:\work\ctglobalfreightaudit\Exam\MeetingRoom\bin\Debug\netcoreapp2.1\MeetingRoo
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\bin\Debug\netcoreapp2.1\MeetingRoom.pdb
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\bin\Debug\netcoreapp2.1\MeetingRoom.Views.dll
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\bin\Debug\netcoreapp2.1\MeetingRoom.Views.pdb
-D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\MeetingRoom.csprojAssemblyReference.cache
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\MeetingRoom.csproj.CoreCompileInputs.cache
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\MeetingRoom.RazorAssemblyInfo.cache
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\MeetingRoom.RazorAssemblyInfo.cs
@@ -52,6 +51,8 @@ D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Page
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\RoomAttributes\Create.g.cshtml.cs
+D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\RoomAttributes\Delete.g.cshtml.cs
+D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\RoomAttributes\Details.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\RoomAttributes\Edit.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\RoomAttributes\Index.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Rooms\Create.g.cshtml.cs
