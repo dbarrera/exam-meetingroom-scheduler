@@ -22,7 +22,8 @@ namespace MeetingRoom.Pages.Rooms
 
         public Edit(IMediator mediator) => _mediator = mediator;
 
-        public async Task OnGetAsync(Query query) => Data = await _mediator.Send(query);
+        public async Task OnGetAsync(Query query) 
+            => Data = await _mediator.Send(query);
 
         public async Task<IActionResult> OnPostAsync()
         {
