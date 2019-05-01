@@ -49,6 +49,7 @@ D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Page
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\FoodItems\Create.g.cshtml.cs
+D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\FoodItems\Delete.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\FoodItems\Details.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\FoodItems\Edit.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\FoodItems\Index.g.cshtml.cs
