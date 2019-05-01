@@ -1,4 +1,5 @@
 ﻿using MeetingRoom.Models;
+using System;
 using System.Linq;
 
 namespace MeetingRoom.Data
@@ -105,6 +106,33 @@ namespace MeetingRoom.Data
                 foreach (var f in foodItems)
                 {
                     context.FoodItems.Add(f);
+                }
+                context.SaveChanges();
+            }
+
+            var schedules = new Schedule[0];
+
+            if (!context.Schedules.Any())
+            {
+                DateTime now = DateTime.Now;
+
+                schedules = new Schedule[]
+                {
+                    new Schedule { RoomId = rooms.Single(r => r.Name == "Room 1").Id,
+                                   Name = "Schedule 1",
+                                   StartTime = new DateTime(now.Year, now.Month, now.Day) + new TimeSpan(7, 0, 0),
+                                   EndTime = new DateTime(now.Year, now.Month, now.Day) + new TimeSpan(10, 0, 0)
+                    },
+                    new Schedule { RoomId = rooms.Single(r => r.Name == "Room 1").Id,
+                                   Name = "Schedule 2",
+                                   StartTime = new DateTime(now.Year, now.Month, now.Day) + new TimeSpan(13, 0, 0),
+                                   EndTime = new DateTime(now.Year, now.Month, now.Day) + new TimeSpan(15, 0, 0)
+                    },
+                };
+
+                foreach (var s in schedules)
+                {
+                    context.Schedules.Add(s);
                 }
                 context.SaveChanges();
             }

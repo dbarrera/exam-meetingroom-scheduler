@@ -34,6 +34,10 @@ namespace MeetingRoom.Infrastructure
                     {
                         entity = await dbContext.Set<Food>().FindAsync(id);
                     }
+                    else if (bindingContext.ModelType == typeof(Schedule))
+                    {
+                        entity = await dbContext.Set<Schedule>().FindAsync(id);
+                    }
 
                     bindingContext.Result = entity != null ? ModelBindingResult.Success(entity) : bindingContext.Result;
                 }

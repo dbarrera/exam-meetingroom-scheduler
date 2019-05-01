@@ -18,6 +18,8 @@ namespace MeetingRoom.Data
         public DbSet<RoomAttribute> RoomAttributes { get; set; }
         public DbSet<RoomItem> RoomItems { get; set; }
         public DbSet<Food> FoodItems { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<ServingSchedule> ServingSchedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,9 +27,13 @@ namespace MeetingRoom.Data
             modelBuilder.Entity<RoomAttribute>().ToTable("RoomAttribute");
             modelBuilder.Entity<RoomItem>().ToTable("RoomItem");
             modelBuilder.Entity<Food>().ToTable("Food");
+            modelBuilder.Entity<Schedule>().ToTable("Schedule");
+            modelBuilder.Entity<ServingSchedule>().ToTable("ServingSchedule");
 
             modelBuilder.Entity<RoomItem>()
                 .HasKey(r => new { r.RoomId, r.RoomAttributeId });
+            modelBuilder.Entity<ServingSchedule>()
+                .HasKey(r => new { r.FoodId, r.ScheduleId });
         }
 
         public async Task BeginTransactionAsync()
