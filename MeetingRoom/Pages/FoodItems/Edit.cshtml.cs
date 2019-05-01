@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeetingRoom.Pages.RoomAttributes
+namespace MeetingRoom.Pages.FoodItems
 {
     public class Edit : PageModel
     {
@@ -35,17 +35,16 @@ namespace MeetingRoom.Pages.RoomAttributes
         {
             public int Id { get; set; }
         }
-
+        
         public class Command : IRequest
         {
             public int Id { get; set; }
             public string Name { get; set; }
-            public string Value { get; set; }
         }
 
         public class MappingProfile : Profile
         {
-            public MappingProfile() => CreateMap<Command, RoomAttribute>(MemberList.Source);
+            public MappingProfile() => CreateMap<Command, Food>(MemberList.Source);
         }
 
         public class QueryHandler : IRequestHandler<Query, Command>
@@ -61,10 +60,10 @@ namespace MeetingRoom.Pages.RoomAttributes
 
             public async Task<Command> Handle(Query request, CancellationToken cancellationToken)
                 => await _db
-                    .RoomAttributes
-                    .Where(r => r.Id == request.Id)
-                    .ProjectTo<Command>(_configuration)
-                    .SingleOrDefaultAsync(cancellationToken);
+                .FoodItems
+                .Where(f => f.Id == request.Id)
+                .ProjectTo<Command>(_configuration)
+                .SingleOrDefaultAsync(cancellationToken);
         }
 
         public class CommandHandler : IRequestHandler<Command>
@@ -80,10 +79,10 @@ namespace MeetingRoom.Pages.RoomAttributes
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var roomAttribute =
-                    await _db.RoomAttributes.FindAsync(request.Id);
+                var food =
+                    await _db.FoodItems.FindAsync(request.Id);
 
-                _mapper.Map(request, roomAttribute);
+                _mapper.Map(request, food);
 
                 return default;
             }
