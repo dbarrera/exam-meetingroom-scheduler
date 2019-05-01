@@ -9,15 +9,15 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeetingRoom.Pages.Rooms
+namespace MeetingRoom.Pages.RoomAttributes
 {
     public class Index : PageModel
     {
         private readonly IMediator _mediator;
 
-        public Index(IMediator mediator) => _mediator = mediator;
-
         public Result Data { get; private set; }
+
+        public Index(IMediator mediator) => _mediator = mediator;
 
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
@@ -45,11 +45,12 @@ namespace MeetingRoom.Pages.Rooms
         {
             public int Id { get; set; }
             public string Name { get; set; }
+            public string Value { get; set; }
         }
 
         public class MappingProfile : Profile
         {
-            public MappingProfile() => CreateMap<Room, Model>();
+            public MappingProfile() => CreateMap<RoomAttribute, Model>();
         }
 
         public class QueryHandler : IRequestHandler<Query, Result>
@@ -83,17 +84,17 @@ namespace MeetingRoom.Pages.Rooms
                 model.CurrentFilter = request.SearchString;
                 model.SearchString = request.SearchString;
 
-                IQueryable<Room> rooms = _db.Rooms;
-
+                IQueryable<RoomAttribute> attributes = _db.RoomAttributes;
+                
                 if (!String.IsNullOrEmpty(request.SearchString))
                 {
-                    rooms = rooms.Where(r => r.Name.Contains(request.SearchString));
+                    attributes = attributes.Where(r => r.Name.Contains(request.SearchString));
                 }
 
                 int pageSize = 15;
                 int pageNumber = (request.Page ?? 1);
 
-                model.Results = await rooms
+                model.Results = await attributes
                     .ProjectTo<Model>(_configuration)
                     .PaginatedListAsync(pageNumber, pageSize);
 
