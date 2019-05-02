@@ -47,8 +47,21 @@ namespace MeetingRoom.Pages.Schedules
 
             public int Id { get; set; }
             public string Name { get; set; }
+            public DateTime StartTime { private get; set; }
+            public DateTime EndTime { private get; set; }
+
             [IgnoreMap]
             public List<FoodData> AssignedFood { get; set; }
+
+            [IgnoreMap]
+            public string Date
+                => StartTime.Date == EndTime.Date
+                   ? StartTime.Date.ToString("dd/MM/yyyy")
+                   : $"{StartTime.Date.ToString("dd/MM/yyyy")} - {EndTime.Date.ToString("dd/MM/yyyy")}";
+
+            [IgnoreMap]
+            public string Duration
+                => $"{StartTime.ToString("hh:mm tt")} - {EndTime.ToString("hh:mm tt")}";
 
             public class FoodData
             {
