@@ -1,0 +1,43 @@
+﻿@page "{id:int}"
+@model Schedules.UpdateFood
+@{
+    ViewData["Title"] = "Update Food";
+}
+
+<h2>Update Food</h2>
+
+<h4>Schedule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            @Html.HiddenFor(m => m.Data.Id)
+            @Html.DisplayFor(m => m.Data.Name)
+            <div class="form-group">
+                @{ 
+                    int i = 0;
+
+                    foreach (var foodData in Model.Data.AssignedFood)
+                    {
+                        <div>
+                            <label stype="font-weight: normal">
+                                @Html.HiddenFor(m => m.Data.AssignedFood[i].FoodId)
+                                @Html.CheckBoxFor(m => m.Data.AssignedFood[i].Assigned)
+                                @Html.DisplayFor(m => m.Data.AssignedFood[i].Name)
+                                @Html.EditorFor(m => m.Data.AssignedFood[i].TimeIn, new { htmlAttributes = new { @class = "form-control" }})
+                            </label>
+                        </div>
+                        i++;
+                    }
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>

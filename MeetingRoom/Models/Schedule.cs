@@ -14,6 +14,6 @@ namespace MeetingRoom.Models
         [Column(TypeName="datetime2")]
         public DateTime EndTime { get; set; }
         public Room Room { get; set; }
-        public ICollection<ServingSchedule> Servings { get; set; }
+        public ICollection<ServingSchedule> Servings { get; private set; } = new List<ServingSchedule>();
     }
 }

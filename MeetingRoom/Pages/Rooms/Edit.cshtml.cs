@@ -128,42 +128,31 @@ namespace MeetingRoom.Pages.Rooms
                     .Where(r => r.RoomId == room.Id)
                     .ToListAsync(cancellationToken);
 
-                if (request.SelectedAttributes.Length != 0)
-                {
-                    var selectedAttributesHS =
-                        new HashSet<int>(request.SelectedAttributes);
-                    var assignedAttributesHS = new HashSet<int>
-                        (assignedRoomItems.Select(a => a.RoomAttributeId));
+                var selectedAttributesHS =
+                    new HashSet<int>(request.SelectedAttributes);
+                var assignedAttributesHS = new HashSet<int>
+                    (assignedRoomItems.Select(a => a.RoomAttributeId));
 
-                    foreach (var attribute in await _db.RoomAttributes.ToListAsync(cancellationToken))
+                foreach (var attribute in await _db.RoomAttributes.ToListAsync(cancellationToken))
+                {
+                    if (selectedAttributesHS.Contains(attribute.Id))
                     {
-                        if (selectedAttributesHS.Contains(attribute.Id))
+                        if (!assignedAttributesHS.Contains(attribute.Id))
                         {
-                            if (!assignedAttributesHS.Contains(attribute.Id))
+                            _db.RoomItems.Add(new RoomItem
                             {
-                                _db.RoomItems.Add(new RoomItem
-                                {
-                                    Room = room,
-                                    RoomAttribute = attribute
-                                });
-                            }
-                        }
-                        else
-                        {
-                            if (assignedAttributesHS.Contains(attribute.Id))
-                            {
-                                var toRemove = assignedRoomItems.Single(a => a.RoomAttributeId == attribute.Id);
-                                _db.RoomItems.Remove(toRemove);
-                            }
+                                Room = room,
+                                RoomAttribute = attribute
+                            });
                         }
                     }
-                }
-                else
-                {
-                    // Remove all room items, if there is any
-                    foreach (var removeRoomItem in assignedRoomItems)
+                    else
                     {
-                        _db.RoomItems.Remove(removeRoomItem);
+                        if (assignedAttributesHS.Contains(attribute.Id))
+                        {
+                            var toRemove = assignedRoomItems.Single(a => a.RoomAttributeId == attribute.Id);
+                            _db.RoomItems.Remove(toRemove);
+                        }
                     }
                 }
 
