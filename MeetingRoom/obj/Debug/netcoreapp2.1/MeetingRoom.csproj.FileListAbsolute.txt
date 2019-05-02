@@ -81,3 +81,4 @@ D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\MeetingRoo
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\MeetingRoom.csprojAssemblyReference.cache
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Schedules\UpdateFood.g.cshtml.cs
 D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Schedules\Edit.g.cshtml.cs
+D:\work\ctglobalfreightaudit\Exam\MeetingRoom\obj\Debug\netcoreapp2.1\Razor\Pages\Schedules\Delete.g.cshtml.cs

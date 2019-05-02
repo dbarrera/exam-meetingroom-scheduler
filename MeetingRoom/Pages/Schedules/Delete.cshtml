@@ -1,0 +1,44 @@
+﻿@page "{id:int}"
+@model Schedules.Delete
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <display-label-tag For="Data.Name" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Name" />
+        </dd>
+        <dt>
+            <display-label-tag For="Data.Room" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Room" />
+        </dd>
+        <dt>
+            <display-label-tag For="Data.Date" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Date" />
+        </dd>
+        <dt>
+            <display-label-tag For="Data.Duration" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Duration" />
+        </dd>
+    </dl>
+    <form method="post">
+        <input-tag for="Data.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <a asp-page="Index">Back to List</a>
+    </form>
+</div>
