@@ -1,0 +1,41 @@
+﻿@page
+@model Schedules.Details
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <display-label-tag For="Data.Name" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Name" />
+        </dd>
+        <dt>
+            <display-label-tag For="Data.Room" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Room" />
+        </dd>
+        <dt>
+            <display-label-tag For="Data.Date" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Date" />
+        </dd>
+        <dt>
+            <display-label-tag For="Data.Duration" />
+        </dt>
+        <dd>
+            <display-tag for="Data.Duration" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
